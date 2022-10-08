@@ -1,0 +1,20 @@
+.movie__img {
+  width: 100%;
+  @include mq(desktop) {
+    height: 455px;
+  }
+
+  @include mq(desktop) {
+    height: 574px;
+  }
+}
+
+.movie__card {
+  flex-basis: calc((100% - 32px) / 3);
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

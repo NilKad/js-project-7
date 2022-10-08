@@ -2,13 +2,14 @@
 @import './abstracts/abstracts';
 @import './base/base';
 @import './base/common';
+@import './abstracts/visually-hidden';
 
 @import './layout/container';
 @import './layout/header';
+@import './layout/gallery';
 @import './components/form-search';
 
 @import './components/paginations';
-
 
 @import './layout/footer';
 
