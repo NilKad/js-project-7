@@ -1,3 +1,5 @@
+import './js/preloader';
+import './js/spinner';
 // import paginations from './js/paginations';
 
 import './js/moviesGallery';
