@@ -7,13 +7,13 @@ import antonImg from '../img/team/Anton.jpg';
 import maximImg from '../img/team/Maksim.jpg';
 import evgeniyImg from '../img/team/Evgeniy.jpg';
 import yelyzavetaImg from '../img/team/Yelyzaveta.jpg';
-import artemImg from '../img/team/user-min.png';
+import artemImg from '../img/team/Artem.jpg';
 import yuriiImg from '../img/team/Yurii.jpg';
 
 export const teamInfo = [
   {name: 'Aleksandr Kadulin', img: `${aleksandrImg}`, socialLink: 'https://github.com/NilKad', teamRole: 'Team Lead',},
   {name: 'Oksana Kuzich', img: `${oksanaImg}`, socialLink: 'https://github.com/OksanaKuzich', teamRole: 'Scrum Master',},
-  {name: 'Aleksei Baliuk', img: `${alekseiImg}`, socialLink: 'https://github.com/AlekseiBaliukveloper', teamRole: 'Developer',},
+  {name: 'Aleksei Baliuk', img: `${alekseiImg}`, socialLink: 'https://github.com/AlekseiBaliuk', teamRole: 'Developer',},
   {name: 'Dmytro Kobeza', img: `${dmytroImg}`, socialLink: 'https://github.com/kobeza1', teamRole: 'Developer',},
   {name: 'Yulia Sukhonenko', img: `${yuliaImg}`, socialLink: 'https://github.com/Yulia0907', teamRole: 'Developer',},
   {name: 'Anton Ostapienko', img: `${antonImg}`, socialLink: 'https://github.com/AntonyUser', teamRole: 'Developer',},
