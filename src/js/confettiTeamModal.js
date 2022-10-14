@@ -4,6 +4,6 @@ export default function showConfetti() {
   confetti.create(document.getElementById('canvas'), {
     resize: true,
     useWorker: true,
-  })({ particleCount: 3000, spread: 600, startVelocity: 80, zIndex: 2022}); 
+  })({ particleCount: 2500, spread: 400, startVelocity: 80, zIndex: 2022}); 
 }
 

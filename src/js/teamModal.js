@@ -25,25 +25,23 @@ const markupTeamCard = teamInfo
     ${markupTeamCard}
   </ul>`;
 
-const openBtnTeam = document.querySelector('.footer-btn');
-openBtnTeam.addEventListener('click', openModalTeam);
+const btnTeam = document.querySelector('.footer-btn');
 
-const bodyTeam = document.querySelector('body');
-const modalTeam = basicLightbox.create(markupModal);
+const modalTeam = basicLightbox.create(markupModal, {
+  onShow: () => {
+    showConfetti();
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', function closeModalTeam(e) {
+      if (e.code === 'Escape') {
+        document.body.style.overflow = 'auto';
+        modalTeam.close();
+        window.removeEventListener('keydown', closeModalTeam);
+      }
+    });
+  },
+  onClose: () => {
+    document.body.style.overflow = 'auto';
+  },
+});
 
-function openModalTeam(e) {
-  e.preventDefault();
-  modalTeam.show();
-  showConfetti();
-  bodyTeam.style.overflow = 'hidden';
-
-  window.addEventListener('keydown', closeModalTeam);
-
-  function closeModalTeam(e) {
-    if (e.code === 'Escape') {
-      modalTeam.close();
-      window.removeEventListener('keydown', closeModalTeam);
-    }
-  }
-};
-
+btnTeam.addEventListener('click', modalTeam.show);
