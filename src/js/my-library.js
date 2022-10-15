@@ -4,7 +4,7 @@ import { modalBasicLightbox } from './modalBasicLightbox';
 import { localStorageAPI } from './localStorageAPI';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
+import nothingHereIMG from '../img/thereNothingHere.jpg';
 
 const moviesContainer = document.querySelector('.movies');
 const watchedBtnEl = document.querySelector('[data-id="watched-btn"');
@@ -16,10 +16,19 @@ watchedBtnEl.addEventListener('click', onWatchedBtnClick);
 queueBtnEl.addEventListener('click', onQueueBtnClick);
 // myLibraryNavEl.addEventListener('click', renderCardsWatched);
 
+// Заглушка, когда пусто в MyLibrary
+const DefaultMarcup = `<li class="default-img"><img src="${nothingHereIMG}" 
+  alt="nothing-here" width="400px"></img></li>`;
+
 function renderCardsWatched() {
-  console.log('is running');
   const getWatched = localStorageApi.getData('watched');
-  const markup = createMovieCards(getWatched);
+  let markup = '';
+
+  if (getWatched === null || getWatched.length === 0) {
+    markup = DefaultMarcup;
+  } else {
+    markup = createMovieCards(getWatched);
+  }
   moviesContainer.innerHTML = markup;
   moviesContainer.addEventListener('click', onWatchedMovieCardClick);
 }
@@ -27,25 +36,35 @@ function renderCardsWatched() {
 renderCardsWatched();
 
 function onWatchedBtnClick() {
+  let markup = '';
   moviesContainer.removeEventListener('click', onQueueMovieCardClick);
 
   if (watchedBtnEl.classList.contains('is-active')) {
     return;
   }
   const getWatched = localStorageApi.getData('watched');
-  const markup = createMovieCards(getWatched);
+  if (getWatched === null || getWatched.length === 0) {
+    markup = DefaultMarcup;
+  } else {
+    markup = createMovieCards(getWatched);
+  }
   moviesContainer.innerHTML = markup;
   moviesContainer.addEventListener('click', onWatchedMovieCardClick);
 }
 
 function onQueueBtnClick() {
+  let markup = '';
   moviesContainer.removeEventListener('click', onWatchedMovieCardClick);
 
   if (!watchedBtnEl.classList.contains('is-active')) {
     return;
   }
   const getQueue = localStorageApi.getData('queue');
-  const markup = createMovieCards(getQueue);
+  if (getQueue === null || getQueue.length === 0) {
+    markup = DefaultMarcup;
+  } else {
+    markup = createMovieCards(getQueue);
+  }
   moviesContainer.innerHTML = markup;
   moviesContainer.addEventListener('click', onQueueMovieCardClick);
 }

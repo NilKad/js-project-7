@@ -99,8 +99,14 @@ function modalBasicLightbox(
 
         if (tag !== 'movies') {
           const moviesListOnClose = JSON.parse(localStorage.getItem(`${tag}`));
-          const markup = createMovieCards(moviesListOnClose);
-          const moviesContainer = document.querySelector('.movies');
+          let markup = '';
+          if(moviesListOnClose === null || moviesListOnClose.length === 0){
+              marcup = `<li class="default-img"><img src="${nothingHereIMG}" 
+              alt="nothing-here" width="400px"></img></li>`;
+          } else {
+            markup = createMovieCards(moviesListOnClose);
+          }
+           const moviesContainer = document.querySelector('.movies');
           moviesContainer.innerHTML = markup;
         }
       },
