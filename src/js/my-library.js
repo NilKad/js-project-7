@@ -5,6 +5,7 @@ import { localStorageAPI } from './localStorageAPI';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
+
 const moviesContainer = document.querySelector('.movies');
 const watchedBtnEl = document.querySelector('[data-id="watched-btn"');
 const queueBtnEl = document.querySelector('[data-id="queue-btn"');
