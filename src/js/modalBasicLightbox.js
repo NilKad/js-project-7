@@ -101,19 +101,18 @@ function modalBasicLightbox(
         if (tag !== 'movies') {
           const moviesListOnClose = JSON.parse(localStorage.getItem(`${tag}`));
           let markup = '';
-          if(moviesListOnClose === null || moviesListOnClose.length === 0){
-              markup = createMovieCards(moviesListOnClose);
+          if (moviesListOnClose === null || moviesListOnClose.length === 0) {
+            markup = createMovieCards(moviesListOnClose);
           } else {
             markup = createMovieCards(moviesListOnClose);
           }
-           const moviesContainer = document.querySelector('.movies');
+          const moviesContainer = document.querySelector('.movies');
           moviesContainer.innerHTML = markup;
         }
       },
       className: 'film-modal',
     }
   );
-
 
   instance.show();
 
