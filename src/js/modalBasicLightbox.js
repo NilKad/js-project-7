@@ -4,6 +4,7 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import playSvg from '../img/play.svg';
 import noFoto from '../img/no_ing.jpg';
 import { createMovieCards } from './moviesMarkup';
+import nothingHereIMG from '../img/thereNothingHere.jpg';
 
 const body = document.querySelector('body');
 let instance;
@@ -61,7 +62,6 @@ function modalBasicLightbox(
           <li class="movie__item">
             <p class="movie__details">${genresNo}</p>
             <p class="movie__info">${genres.join(', ')}</p>
-
           </li>
         </ul>
       </div>
@@ -97,13 +97,11 @@ function modalBasicLightbox(
         window.removeEventListener('keydown', onEscKeyPress);
         // console.log(tag);
 
-        
         if (tag !== 'movies') {
           const moviesListOnClose = JSON.parse(localStorage.getItem(`${tag}`));
           let markup = '';
           if(moviesListOnClose === null || moviesListOnClose.length === 0){
-              marcup = `<li class="default-img"><img src="${nothingHereIMG}" 
-              alt="nothing-here" width="400px"></img></li>`;
+              markup = createMovieCards(moviesListOnClose);
           } else {
             markup = createMovieCards(moviesListOnClose);
           }
