@@ -114,6 +114,7 @@ function modalBasicLightbox(
     }
   );
 
+
   instance.show();
 
   async function tryFetch() {
