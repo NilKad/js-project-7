@@ -72,11 +72,11 @@ function modalBasicLightbox(
         <button type="button" class="trailer__button" data-id=${id}><img class="play__icon" src=${playSvg} alt="play" />Watch trailer</button>
       </div>
       <div class="button__wrapper">
-        <button type="button" class="movie__button btn-watched" data-id=${id}>Add to watched</button>
-        <button type="button" class="movie__button btn-queue" data-id=${id}>Add to queue</button>
+        <button type="button" class="movie__button btn-watched" data-id=${id} onclick="this.blur();">Add to watched</button>
+        <button type="button" class="movie__button btn-queue" data-id=${id} onclick="this.blur();">Add to queue</button>
       </div>
       </div>
-      </div>
+      </div>-
       `,
     {
       onShow: () => {
@@ -101,12 +101,13 @@ function modalBasicLightbox(
         if (tag !== 'movies') {
           const moviesListOnClose = JSON.parse(localStorage.getItem(`${tag}`));
           let markup = '';
-          if (moviesListOnClose === null || moviesListOnClose.length === 0) {
-            markup = createMovieCards(moviesListOnClose);
+          if(moviesListOnClose === null || moviesListOnClose.length === 0){
+              markup = `<li class="default-img"><img src="${nothingHereIMG}" 
+              alt="nothing-here" width="400px"></img></li>`;
           } else {
             markup = createMovieCards(moviesListOnClose);
           }
-          const moviesContainer = document.querySelector('.movies');
+           const moviesContainer = document.querySelector('.movies');
           moviesContainer.innerHTML = markup;
         }
       },
@@ -114,7 +115,7 @@ function modalBasicLightbox(
     }
   );
 
-  instance.show();
+  instance.show();Ё
 
   async function tryFetch() {
     const trailer = await fetchTrailerById(id);

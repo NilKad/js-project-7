@@ -26,7 +26,7 @@
   display: grid;
   row-gap: 20px;
   justify-content: center;
-position: relative;
+
   @include mq(tablet) {
     display: flex;
     justify-content: flex-start;
@@ -141,9 +141,4 @@ position: relative;
   border-radius: 5px;
   color: $main-invert-color;
   background-color: $accent-color;
-}
-
-.default-img {
-  margin-left: auto;
-  margin-right: auto;
 }

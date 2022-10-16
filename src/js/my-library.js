@@ -69,6 +69,7 @@ function onQueueBtnClick() {
   moviesContainer.addEventListener('click', onQueueMovieCardClick);
 }
 
+
 function onWatchedMovieCardClick(e) {
   const targetFilm = e.target.closest('li').dataset.id;
   if (e.target.nodeName === 'UL') {
