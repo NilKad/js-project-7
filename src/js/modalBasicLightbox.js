@@ -97,6 +97,7 @@ function modalBasicLightbox(
         window.removeEventListener('keydown', onEscKeyPress);
         // console.log(tag);
 
+        
         if (tag !== 'movies') {
           const moviesListOnClose = JSON.parse(localStorage.getItem(`${tag}`));
           let markup = '';
